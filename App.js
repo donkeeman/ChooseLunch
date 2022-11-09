@@ -29,11 +29,12 @@ export default function App() {
 
 // <img src="" /> 대신
 // <Image source={require(...)} />
-// 외부 리소스라면 <Image source={url: (...)} />
+// 외부 리소스라면 <Image source={uri: (...)} /> (url 아님)
 
 // View는 실제로 보이는 영역 (div와 같음)
 // SaveAreaView는 ios의 상단 카메라 부분의 영역을 침범하지 않고 카메라 아래의 영역만 사용
 // ScrollView는 스크롤이 가능한 영역
+// horizontal 속성으로 가로 스크롤을 만들 수 있음
 
 // TextInput === Input
 // TextInput에는 텍스트의 변화만을 감지하는 onChangeText라는 핸들러가 있음
@@ -46,3 +47,7 @@ export default function App() {
 // alert()의 첫 번째 인자는 알림창의 제목, 두 번째 인자는 알림창의 메시지, 세 번째 인자는 버튼 (text 속성으로 버튼의 텍스트 수정, onPress 속성으로 버튼을 눌렀을 때 실행될 함수 설정)
 
 // props, state는 리액트와 동일
+
+// Platform을 import한 후, Platform.OS === "android" 등으로 운영 체제마다 다른 화면을 보여주게끔 할 수 있음
+// Platform.Version으로 버전도 선택 가능
+// Platform.isPad, isTV 등 기기 종류도 선택 가능
