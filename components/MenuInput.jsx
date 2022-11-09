@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
     StyleSheet,
     Text,
@@ -10,22 +10,44 @@ import {
     Alert,
 } from "react-native";
 
-const MenuInput = () => {
+const MenuInput = ({ selectList, setSelectList }) => {
     return (
-        <View style={{ height: 300, alignItems: "center" }}>
-            <TextInput
-                style={{
-                    borderWidth: 1,
-                    padding: 10,
-                    width: "80%",
-                    borderRadius: 5,
-                    marginBottom: 20,
-                }}
-                placeholder="메뉴 입력..."
-            />
+        <View style={{ alignItems: "center" }}>
+            {selectList.map((menu, index) => {
+                return (
+                    <TextInput
+                        style={{
+                            borderWidth: 1,
+                            padding: 10,
+                            width: "80%",
+                            borderRadius: 5,
+                            marginBottom: 20,
+                        }}
+                        placeholder={`메뉴 ${index + 1} 입력...`}
+                        key={index}
+                        value={menu}
+                        onChangeText={(input) => {
+                            let newArray = selectList;
+                            selectList[index] = input;
+                            setSelectList([...newArray]);
+                        }}
+                    />
+                );
+            })}
             <TouchableOpacity
                 onPress={() => {
-                    Alert.alert("버튼 누름");
+                    // Alert.alert("버튼 누름");
+                    if (selectList.includes("")) {
+                        Alert.alert("메뉴 입력", "메뉴를 입력해 주세요.", [
+                            { text: "OK", onPress: () => {} },
+                        ]);
+                        return;
+                    } else {
+                        setSelectList([...selectList, ""]);
+                    }
+                    // let tempInputList = inputList;
+                    // tempInputList.push("");
+                    // inputList = tempInputList;
                 }}
                 style={{
                     width: 100,
