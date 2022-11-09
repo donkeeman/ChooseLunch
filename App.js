@@ -48,6 +48,8 @@ export default function App() {
 
 // props, state는 리액트와 동일
 
-// Platform을 import한 후, Platform.OS === "android" 등으로 운영 체제마다 다른 화면을 보여주게끔 할 수 있음
+// Platform을 import한 후, Platform.OS === "android" 등으로 운영 체제마다 다른 화면을 보여주게끔 할 수 있음, 태그 뿐 아니라 스타일도 운영 체제별로 따로 설정 가능
+// 스타일을 운영 체제 별로 간단히 적용하려면 ...Platform.select({ ios: {...}, android: {...} }) 등으로 설정 가능
 // Platform.Version으로 버전도 선택 가능
 // Platform.isPad, isTV 등 기기 종류도 선택 가능
+

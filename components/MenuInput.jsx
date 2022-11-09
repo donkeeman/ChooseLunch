@@ -8,6 +8,7 @@ import {
     TextInput,
     TouchableOpacity,
     Alert,
+    Platform,
 } from "react-native";
 
 const MenuInput = ({ selectList, setSelectList }) => {
@@ -51,7 +52,12 @@ const MenuInput = ({ selectList, setSelectList }) => {
                 }}
                 style={{
                     width: 100,
-                    backgroundColor: "blue",
+                    // backgroundColor:
+                    //     Platform.OS === "android" ? "green" : "blue",
+                    ...Platform.select({
+                        android: { backgroundColor: "green" },
+                        ios: { backgroundColor: "blue" },
+                    }),
                     alignItems: "center",
                     padding: 10,
                     borderRadius: 10,
