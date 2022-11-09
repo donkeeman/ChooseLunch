@@ -10,15 +10,14 @@ import {
     Alert,
 } from "react-native";
 import MenuInput from "./components/MenuInput";
+import MenuSelect from "./components/MenuSelect";
 
 export default function App() {
-    const [selectList, setSelectList] = useState([
-        "",
-    ]);
+    const [selectList, setSelectList] = useState([""]);
     return (
         <SafeAreaView>
             <ScrollView>
-                <View style={{ height: 150 }}></View>
+                <MenuSelect selectList={selectList} />
                 <MenuInput
                     selectList={selectList}
                     setSelectList={setSelectList}
